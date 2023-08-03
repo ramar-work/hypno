@@ -711,6 +711,20 @@ int cmd_server ( struct values *v, char *err, int errlen ) {
 		FPRINTF( "IP addr is: %s\n", ip );
 	#endif
 
+	#if 0 
+		//Check that we're ready to receive
+POLLIN
+POLLRDNORM
+POLLRDBAND
+POLLPRI
+POLLOUT
+POLLWRNORM
+POLLWRBAND
+POLLERR
+POLLHUP
+POLLNVAL
+	#endif
+
 		//Start a new thread
 		if ( pthread_create( &f->id, NULL, run_srv_cycle, f ) != 0 ) {
 			FPRINTF( "Pthread create unsuccessful.\n" );
